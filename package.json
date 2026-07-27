@@ -1,0 +1,30 @@
+{
+    "name": "@d3p1/anthropic-mcp-courses",
+    "version": "0.0.0",
+    "description": "MCP courses from Anthropic",
+    "private": true,
+    "scripts": {
+        "format:code": "prettier --ignore-path .gitignore --check src",
+        "format:code:fix": "npm run format:code -- --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/d3p1/anthropic-mcp-courses.git"
+    },
+    "keywords": [
+        "python",
+        "laboratory"
+    ],
+    "author": "C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/d3p1/anthropic-mcp-courses/issues"
+    },
+    "homepage": "https://github.com/d3p1/anthropic-mcp-courses#readme",
+    "devDependencies": {
+        "@commitlint/cli": "^19.8.1",
+        "@d3p1/commitlint-config": "^1.0.1",
+        "husky": "8.0.3",
+        "prettier": "3.0.3"
+    }
+}
