@@ -5,11 +5,15 @@
 ##
 FROM python:3
 
-WORKDIR /usr/src/app
+RUN apt-get update && apt-get install -y sudo
+RUN groupadd -r -g 1000 dev && useradd -r -u 1000 -g dev -m -s /bin/bash dev && \
+    usermod -aG sudo dev && \
+    echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-RUN apt-get update && apt-get install -y nodejs npm
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
-RUN groupadd -r -g 1000 dev && useradd -r -u 1000 -g dev -m -s /bin/bash dev
-RUN chown -R dev:dev /usr/src/app
 USER dev
+
+WORKDIR /home/dev/app
+
+RUN sudo apt-get update && sudo apt-get install -y nodejs npm
+RUN sudo curl -LsSf https://astral.sh/uv/install.sh | sh
+
