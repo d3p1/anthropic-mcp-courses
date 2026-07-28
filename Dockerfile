@@ -14,6 +14,7 @@ USER dev
 
 RUN sudo apt-get update && sudo apt-get install -y nodejs npm
 RUN sudo curl -LsSf https://astral.sh/uv/install.sh | sh
+RUN sudo ln -s /home/dev/.local/bin/uv /bin/uv
 
 WORKDIR /home/dev/app/src
 
@@ -23,4 +24,4 @@ EXPOSE 6274
 EXPOSE 6277
 
 ENV UV_VENV_CLEAR=1
-RUN /bin/bash -c "/home/dev/.local/bin/uv venv && source .venv/bin/activate && /home/dev/.local/bin/uv pip install -e .anthropic-mcp-courses-app-1"
+RUN /bin/bash -c "uv venv && source .venv/bin/activate && uv pip install -e ."
