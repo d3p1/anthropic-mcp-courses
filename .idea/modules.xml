@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/anthropic-mcp-course.iml" filepath="$PROJECT_DIR$/.idea/anthropic-mcp-course.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/app.iml" filepath="$PROJECT_DIR$/.idea/app.iml" />
     </modules>
   </component>
