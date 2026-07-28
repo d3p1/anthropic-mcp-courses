@@ -12,8 +12,15 @@ RUN groupadd -r -g 1000 dev && useradd -r -u 1000 -g dev -m -s /bin/bash dev && 
 
 USER dev
 
-WORKDIR /home/dev/app
-
 RUN sudo apt-get update && sudo apt-get install -y nodejs npm
 RUN sudo curl -LsSf https://astral.sh/uv/install.sh | sh
 
+WORKDIR /home/dev/app/src
+
+COPY --chown=dev:dev src/ .
+
+EXPOSE 6274
+EXPOSE 6277
+
+ENV UV_VENV_CLEAR=1
+RUN /bin/bash -c "/home/dev/.local/bin/uv venv && source .venv/bin/activate && /home/dev/.local/bin/uv pip install -e .anthropic-mcp-courses-app-1"
