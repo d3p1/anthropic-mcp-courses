@@ -10,4 +10,6 @@ services:
       volumes:
           - ./src:/home/dev/app/src
       working_dir: /home/dev/app/src
-      command: bash -c "source .venv/bin/activate && mcp dev mcp_server.py"
+      environment:
+          - DANGEROUSLY_OMIT_AUTH=1
+      command: /bin/sleep infinity
